@@ -14,28 +14,14 @@ var config = {
 
 SwaggerExpress.create(config, function(err, swaggerExpress) {
   if (err) { throw err; }
-
-  // install middleware
   swaggerExpress.register(app);
-
   var port = process.env.PORT || 3000;
-
-
-
-
-
   const publicPath=path.join(__dirname+'/public')
   console.log(publicPath)
   app.use(express.static(publicPath))
   server.listen(port,()=>{
     console.log(`Server is running on port ${port}`);
   });
- 
-
-
-  // if (swaggerExpress.runner.swagger.paths['/hello']) {
-  
-  // } 
 });
 
 
